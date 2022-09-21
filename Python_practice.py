@@ -47,23 +47,41 @@
 #     print(counties[i])
 
 
-counties_dict = {"Arapahoe": 422829, "Denver": 463353, "Jefferson": 432438}
+# counties_dict = {"Arapahoe": 422829, "Denver": 463353, "Jefferson": 432438}
 
 # for county in counties_dict:
 #     print(counties_dict.get(county))
 
+
 # for i, j in counties_dict.items():
 #     print(i + " county has " + str(j) + " registered voters.")
 
+# print(counties_dict)
+# print(counties_dict.items())
+# print(counties_dict.keys())
+# print(counties_dict.values())
 
-# voting_data = [{"county":"Arapahoe", "registered_voters": 422829},
-#             {"county":"Denver", "registered_voters": 463353},
-#             {"county":"Jefferson", "registered_voters": 432438}]
+
+voting_data = [{"county":"Arapahoe", "registered_voters": 422829},
+            {"county":"Denver", "registered_voters": 463353},
+            {"county":"Jefferson", "registered_voters": 432438}]
+
+
+
+            
+for i in voting_data:
+    for county, registered_voters in i.items():
+        print(f"{county}: {registered_voters}")
+        # print(f"{county} county has {registered_voters} registered voters.")
+
 
 # for county_dict in voting_data:
-#     # print(county_dict)
-#     for value in county_dict.values():
-#         print(value)
+#     #prints k-v pairs for eact dict
+#     print(county_dict)
+#     #prints k only
+#     print(county_dict['county'])
+    # for value in county_dict.values():
+    #     print(value)
 
 
 # my_votes = int(input("How many votes did you get in the election? "))
@@ -78,5 +96,8 @@ counties_dict = {"Arapahoe": 422829, "Denver": 463353, "Jefferson": 432438}
 # for county, voters in counties_dict.items():
 #     print(county + " county has " + str(voters) + " registered voters.")
 
-for county, voters in counties_dict.items():
-    print(f"{county} county has {voters} registered voters.")
+# for county, voters in counties_dict.items():
+#     print(f"{county} county has {voters} registered voters.")
+
+# for county, voters in counties_dict.items():
+#     print(f"{county} county has {voters:,} registered voters.")

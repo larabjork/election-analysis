@@ -33,3 +33,18 @@ print("The time right now is ", now)
 
 #     # Write some data to the file, with all counties on separate lines
 #     txt_file.write("Counties in the Election\n--------------------------\nArapahoe\nDenver\nJefferson")
+
+
+
+The analysis of the election data shows that:
+- There were 369,711 votes cast in the election.
+- The candidates were:
+    - Charles Casper Stockham
+    - Diana DeGette
+    - Raymon Anthony Doane
+- The candidates' results were:
+    - Charles Casper Stockham received 23.0% of the vote and 85,213 votes.
+    - Diana DeGette received 73.8% of the vote and 272,892 votes.
+    - Raymon Anthony Doane received 3.1% of the vote and 11,606 votes.
+- The winner of the election was:
+    - Diana DeGette, who received 73.8% of the vote and 272,892 votes.

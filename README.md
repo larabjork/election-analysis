@@ -36,17 +36,51 @@ The analysis of the election data shows that:
     - Diana DeGette, who received 73.8% of the vote (272,892 votes out of a precinct total of 369,711).
 
 ## Election-Audit Summary
-The script created for this task is highly reusable for future elections in this precinct because it can adjust to different number of candidates, or if redistricting occurs, a different number of counties (or even all counties in the state). 
+The script created for this task is highly reusable for future elections in this precinct because it can adjust to different number of candidates, or if redistricting occurs, a different number of counties (or even all counties in the state). As long as the election data to be analyzed continues to consists of ballot number, county, and candidate name, this script can be adjusted in a few simple steps.
 
-EXPLAIN LOOPS USED THAT MAKE IT REUSABLE. EXPLAIN HOW CSV CHANGES WOULD HAVE TO BE INCORPORATED
+### What Makes This Script Highly Reusable
+This script is highly reusable because it does not have built-in assumptions about how many candidates or counties are included. This flexibility is possible for many reasons.
+
+Instead of hard-coding names for candidates or counties, this script stores these names in two lists (candidate_options and county_list), as shown in lines 18 and 22. In Python, lists are a mutable data type, meaning that they can be changed. To keep track of how many votes cast per candidate and per county, this script uses another mutable data type, the dictionary. In lines 19 and 23, this script sets up two dictionaries (candidate_votes and county_votes) so that paired information can be stored. For example, in the candidate_votes dictionary, the pairs are made up of a name (stored as candidate_name) and the associated vote count (stored as an integer). 
+
+[code snippet of lines 17-23, with initialization of lists and dictionaries](link to initialize-candidate-county)
+
+The _for_ loop, which begins on line 43, is written so that the data is analyzed row by row. As we pass through the loop, each time:
+* One vote is added to the total and stored in the variable total_votes (line 46), which will conitnue to increase each time we iterate over the loop. 
+* The candidate receiving the vote is stored as candidate_name (line 49), but only for the current iteration of the loop; if that name is not already part of the list of candidates (candidate_options), it is added to the list (line 56) and a vote is added to that candidate's total (line 65).
+* The county in which the vote was cast is stored as county_name(line 52), but only for the current iteration of the loop. As with the candidate information, a similar evaluation of the list of counties and the increase county vote total is made (lines 69 and 79).
+* This loop continues for as long as there is data in the .csv file. 
+
+Lines 83 through 159 cover the process of taking the output of this _for_ loop and presenting it in a condensed format, both on screen (i.e., "in the terminal") and in a text file. This process takes advantage of the same features as in the analysis process, namely the use of:
+* automated ability to open files, and in this section of code, write directly to them)
+* dynamic variables to store information, so that it can be efficiently retrieved
+* _for_ loops, to systematically evaluate all data
+* logical operators in _if_ statements to evaluate data and determine largest number of votes by candidate and by county
 
 
-The script can also be modified to report out county-level results by candidate.
+### Steps to Reuse This Script
+For convenience, line numbers are referenced below, reflecting the current status of the code. However, if lines are inserted and/or deleted the numbering could shift. To run this script against a different data set, we would need to:
 
-The script can also be modified to report out ballot initiative results, where there is a yes/no option.
+1. Confirm that the election data was once again stored in .csv format. If it is in a different format that is still based on a table structure of rows and columns (e.g., an Excel or .xls file), the simplest fix is to convert that file to .csv format.
 
-Could it handle write-in candidates?
+2. Confirm that the .csv data iwass organized in the same way, especially:
+    * A header row is used; as shown in line 40 below, the code is written so that this line of data is skipped and not analyzed. If no header row is present, comment out line 40, so that the first row of data is included.
+    [code snippet of lines 39-40, which use the next method to skip the header row in our loop](link to header-row.png)
+    * The second column has the county name and the third column has candidate name. If the election data presents information in a different order, the index numbers (in brackets) for affected columns would need to be adjusted using zero-based indexing, in line 49 and/or 52, as appropriate.
+    [code snippet of lines 48-52, showing where to check and, if necessary, adjust index](link to candidate-county-row-index)
 
-It can be modified to include a check for duplicate ballot numbers
-1.
-2.
+3. Save the .csv file with election data in the "Resources" folder of this Github repository or correct that portion of the file path, which is shown in line 10 of the following code. If the new file was also named "election_results.csv", we would not have to change line 10, but if any other file name is used, we would have to replace "election_analysis.csv" with the new file name.
+[code snippet of lines 8-10, which establish a variable to store the data source's file path](link to initialize-data-source.png)
+
+4. Follow a similar process as in step 3 for the output file, election_analysis.txt. If the results are to be stored in a text file with the same name and stored in the same folder ("analysis"), then no changes need to be made to line 12, shown below. But if either the file location or the file name changes, that information must be updated in this line of code so that the correct file path is available.
+[code snippet of lines 11-12, which establish a variable to store the analysis's file path](link to initialize-output-file.png)
+
+### Additional Possible Modifications 
+* The script could be modified to report out county-level results by candidate.
+
+* The script could also be modified to report out ballot initiative results, where there is a yes/no option instead of candidates.
+
+* In the case of write-in candidates, this script could also be modified to check for misspellings.
+
+* This script could be modified to include a check for duplicate ballot numbers and/or to check against a separate list of eligible ballot numbers.
+

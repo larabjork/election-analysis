@@ -65,8 +65,10 @@ For convenience, line numbers are referenced below, reflecting the current statu
 
 2. Confirm that the .csv data is organized in the same way, especially:
     * A header row is used; as shown in line 40 below, the code is written so that this line of data is skipped and not analyzed. If no header row is present, comment out line 40, so that the first row of data is included.
+    
     ![code snippet of lines 39-40, which use the next method to skip the header row in our loop](https://github.com/larabjork/election-analysis/blob/main/Resources/header-row.png)
     * The second column has the county name and the third column has candidate name. If the election data presents information in a different order, the index numbers (in brackets) for affected columns would need to be adjusted using zero-based indexing, in lines 49 and/or 52, as appropriate.
+    
     ![code snippet of lines 48-52, showing where to check and, if necessary, adjust index](https://github.com/larabjork/election-analysis/blob/main/Resources/candidate-county-row-index.png)
 
 3. Save the .csv file with election data in the [Resources](https://github.com/larabjork/election-analysis/tree/main/Resources) folder of this Github repository or correct that portion of the file path, which is shown in line 10 of the following code. If the new file was also named "election_results.csv", we would not have to change line 10, but if any other file name is used, we would have to replace "election_analysis.csv" with the new file name.
@@ -74,7 +76,8 @@ For convenience, line numbers are referenced below, reflecting the current statu
     ![code snippet of lines 8-10, which establish a variable to store the data source's file path](https://github.com/larabjork/election-analysis/blob/main/Resources/candidate-county-row-index.png)
 
 4. Follow a similar process as in step 3 for the output file, election_analysis.txt. If the results are to be stored in a text file with the same name and stored in the same folder ("analysis"), then no changes need to be made to line 12, shown below. But if either the file location or the file name changes, that information must be updated in this line of code so that the correct file path is available.
-![code snippet of lines 11-12, which establish a variable to store the analysis's file path](https://github.com/larabjork/election-analysis/blob/main/Resources/initialize-output-file.png)
+
+    ![code snippet of lines 11-12, which establish a variable to store the analysis's file path](https://github.com/larabjork/election-analysis/blob/main/Resources/initialize-output-file.png)
 
 ### Additional Possible Modifications 
 * The script could be modified to report out county-level results by candidate.

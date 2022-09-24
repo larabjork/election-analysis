@@ -67,7 +67,7 @@ For convenience, line numbers are referenced below, reflecting the current statu
     * A header row is used; as shown in line 40 below, the code is written so that this line of data is skipped and not analyzed. If no header row is present, comment out line 40, so that the first row of data is included.
     ![code snippet of lines 39-40, which use the next method to skip the header row in our loop](https://github.com/larabjork/election-analysis/blob/main/Resources/header-row.png)
     * The second column has the county name and the third column has candidate name. If the election data presents information in a different order, the index numbers (in brackets) for affected columns would need to be adjusted using zero-based indexing, in lines 49 and/or 52, as appropriate.
-![code snippet of lines 48-52, showing where to check and, if necessary, adjust index](https://github.com/larabjork/election-analysis/blob/main/Resources/candidate-county-row-index.png)
+    ![code snippet of lines 48-52, showing where to check and, if necessary, adjust index](https://github.com/larabjork/election-analysis/blob/main/Resources/candidate-county-row-index.png)
 
 3. Save the .csv file with election data in the [Resources](https://github.com/larabjork/election-analysis/tree/main/Resources) folder of this Github repository or correct that portion of the file path, which is shown in line 10 of the following code. If the new file was also named "election_results.csv", we would not have to change line 10, but if any other file name is used, we would have to replace "election_analysis.csv" with the new file name.
 

@@ -13,7 +13,7 @@ A Colorado Board of Elections employee has given you the following tasks to comp
 7. Calculate the winner of the election based on the popular vote,
 
 ## Resources
-- Data source: election_results.csv
+- Data source: [election_results.csv](https://github.com/larabjork/election-analysis/blob/main/Resources/election_results.csv)
 - Software: Python 3.9.12, Visual Studio Code 1.71.2
 
 ## Election-Audit Results
@@ -43,7 +43,7 @@ This script is highly reusable because it does not have built-in assumptions abo
 
 Instead of hard-coding names for candidates or counties, this script stores these names in two lists (candidate_options and county_list), as shown in lines 18 and 22. In Python, lists are a mutable data type, meaning that they can be changed. To keep track of how many votes cast per candidate and per county, this script uses another mutable data type, the dictionary. In lines 19 and 23, this script sets up two dictionaries (candidate_votes and county_votes) so that paired information can be stored. For example, in the candidate_votes dictionary, the pairs are made up of a name (stored as candidate_name) and the associated vote count (stored as an integer). 
 
-[code snippet of lines 17-23, with initialization of lists and dictionaries](link to initialize-candidate-county)
+![code snippet of lines 17-23, with initialization of lists and dictionaries](https://github.com/larabjork/election-analysis/blob/main/Resources/initialize-candidate-county.png)
 
 The _for_ loop, which begins on line 43, is written so that the data is analyzed row by row. As we pass through the loop, each time:
 * One vote is added to the total and stored in the variable total_votes (line 46), which will conitnue to increase each time we iterate over the loop. 
@@ -65,15 +65,15 @@ For convenience, line numbers are referenced below, reflecting the current statu
 
 2. Confirm that the .csv data iwass organized in the same way, especially:
     * A header row is used; as shown in line 40 below, the code is written so that this line of data is skipped and not analyzed. If no header row is present, comment out line 40, so that the first row of data is included.
-    [code snippet of lines 39-40, which use the next method to skip the header row in our loop](link to header-row.png)
+    ![code snippet of lines 39-40, which use the next method to skip the header row in our loop](https://github.com/larabjork/election-analysis/blob/main/Resources/header-row.png)
     * The second column has the county name and the third column has candidate name. If the election data presents information in a different order, the index numbers (in brackets) for affected columns would need to be adjusted using zero-based indexing, in line 49 and/or 52, as appropriate.
-    [code snippet of lines 48-52, showing where to check and, if necessary, adjust index](link to candidate-county-row-index)
+    ![code snippet of lines 48-52, showing where to check and, if necessary, adjust index](https://github.com/larabjork/election-analysis/blob/main/Resources/candidate-county-row-index.png)
 
-3. Save the .csv file with election data in the "Resources" folder of this Github repository or correct that portion of the file path, which is shown in line 10 of the following code. If the new file was also named "election_results.csv", we would not have to change line 10, but if any other file name is used, we would have to replace "election_analysis.csv" with the new file name.
-[code snippet of lines 8-10, which establish a variable to store the data source's file path](link to initialize-data-source.png)
+3. Save the .csv file with election data in the [Resources](https://github.com/larabjork/election-analysis/tree/main/Resources) folder of this Github repository or correct that portion of the file path, which is shown in line 10 of the following code. If the new file was also named "election_results.csv", we would not have to change line 10, but if any other file name is used, we would have to replace "election_analysis.csv" with the new file name.
+![code snippet of lines 8-10, which establish a variable to store the data source's file path](https://github.com/larabjork/election-analysis/blob/main/Resources/candidate-county-row-index.png)
 
 4. Follow a similar process as in step 3 for the output file, election_analysis.txt. If the results are to be stored in a text file with the same name and stored in the same folder ("analysis"), then no changes need to be made to line 12, shown below. But if either the file location or the file name changes, that information must be updated in this line of code so that the correct file path is available.
-[code snippet of lines 11-12, which establish a variable to store the analysis's file path](link to initialize-output-file.png)
+![code snippet of lines 11-12, which establish a variable to store the analysis's file path](https://github.com/larabjork/election-analysis/blob/main/Resources/initialize-output-file.png)
 
 ### Additional Possible Modifications 
 * The script could be modified to report out county-level results by candidate.
